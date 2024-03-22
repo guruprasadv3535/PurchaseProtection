@@ -49,8 +49,8 @@ public class WebDriverUtility {
 
 		case "chromeProfile":
 
-			WebDriverManager.chromedriver().setup();
-
+			//WebDriverManager.chromedriver().setup();
+			 
 			// Create ChromeOptions and set the profile path
 			ChromeOptions chromeOptions = new ChromeOptions();
 			chromeOptions.addArguments("user-data-dir=C:\\Users\\Guruprasad V\\AppData\\Local\\Google\\Chrome\\User Data");
@@ -61,7 +61,8 @@ public class WebDriverUtility {
 			break;
 			
 		case "chrome":
-			WebDriverManager.chromedriver().setup();
+			//WebDriverManager.chromedriver().setup();
+			//WebDriverManager.chromedriver().browserVersion("122.0.6261.58").setup();
 
 			driver = new ChromeDriver();
 			break;
@@ -72,6 +73,12 @@ public class WebDriverUtility {
 			break;
 
 		case "edge":
+			WebDriverManager.edgedriver().setup();
+
+			driver = new EdgeDriver();
+			break;
+		
+		case "edgeprofile":
 			WebDriverManager.edgedriver().setup();
 
 			EdgeOptions edgeOptions = new EdgeOptions();

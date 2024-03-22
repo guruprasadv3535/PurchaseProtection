@@ -6,11 +6,14 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 
+import PluginPom.CheckOutPage;
 import MerchantPOM.LoginPage;
 import MerchantPOM.OrdersPage;
 import MerchantPOM.ProfilePage;
 import MerchantPOM.SliderNotificationPage;
 import MerchantPOM.ViewTransactionPage;
+import PluginPom.MerchantWebsitePage;
+import PluginPom.StoreProductPage;
 
 public class BaseClass {
 
@@ -19,12 +22,17 @@ public class BaseClass {
 	protected WebDriverUtility web;
 	protected WebDriver driver;
 
-//	pom classes need to declared
+//	merchant pom classes need to declared
 	protected LoginPage login;
 	protected OrdersPage order;
 	protected ProfilePage profile;
 	protected ViewTransactionPage viewTxn;
 	protected SliderNotificationPage sliderNotify;
+	
+//	PluginPom classes declaration
+	protected MerchantWebsitePage website;
+	protected StoreProductPage product;
+	protected CheckOutPage checkout;
 	
 
 //	@BeforeSuite   because there is no database to connect in this project
@@ -59,12 +67,17 @@ public class BaseClass {
 		//web.navigateToApp(property.readData("sandBoxUrl"));
 		web.waitUntilElementFound(Long.parseLong(property.readData("time")));
 
-		// pom classes initialize
+		// Merchant pom classes initialize
 		login=new LoginPage(driver);
 		profile=new ProfilePage(driver);
 		order=new OrdersPage(driver);
 		viewTxn=new ViewTransactionPage(driver);
 		sliderNotify=new SliderNotificationPage(driver);
+		
+		// Plugin pom classes initialization
+		website=new MerchantWebsitePage(driver);
+		product=new StoreProductPage(driver);
+		checkout=new CheckOutPage(driver);
 	}
 
 	@AfterMethod

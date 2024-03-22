@@ -11,6 +11,9 @@ import MerchantPOM.OrdersPage;
 import MerchantPOM.ProfilePage;
 import MerchantPOM.SliderNotificationPage;
 import MerchantPOM.ViewTransactionPage;
+import PluginPom.CheckOutPage;
+import PluginPom.MerchantWebsitePage;
+import PluginPom.StoreProductPage;
 
 
 public class BaseClassWithoutProfile {
@@ -20,12 +23,17 @@ public class BaseClassWithoutProfile {
 	protected WebDriverUtility web;
 	protected WebDriver driver;
 
-//	pom classes need to declared
+//	Merchant pom classes need to declared
 	protected LoginPage login;
 	protected OrdersPage order;
 	protected ProfilePage profile;
 	protected ViewTransactionPage viewTxn;
 	protected SliderNotificationPage sliderNotify;
+	
+//	Plugin pom classes declaration
+	protected MerchantWebsitePage website;
+	protected StoreProductPage product;
+	protected CheckOutPage checkout;
 
 //	@BeforeSuite   because there is no database to connect in this project
 //	@BeforeTest    because we are not doing parallel execution in this project
@@ -54,12 +62,17 @@ public class BaseClassWithoutProfile {
 		//web.navigateToApp(property.readData("sandBoxUrl"));
 		web.waitUntilElementFound(Long.parseLong(property.readData("time")));
 
-		// pom classes need to initialize
+		// Merchant pom classes need to initialize
 		login=new LoginPage(driver);
 		profile=new ProfilePage(driver);
 		order=new OrdersPage(driver);
 		viewTxn=new ViewTransactionPage(driver);
 		sliderNotify=new SliderNotificationPage(driver);
+		
+//		plugin pom classes initialization
+		website=new MerchantWebsitePage(driver);
+		product=new StoreProductPage(driver);
+		checkout=new CheckOutPage(driver);
 	}
 
 	@AfterMethod

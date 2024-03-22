@@ -3,15 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="MerchantSideTestScript.ProfileDetailsTest">
+      <class name="PluginTestScripts.CustomerSidePurchaseProtection">
         <methods>
-          <include name="methodConfig"/>
-          <include name="classTearDown"/>
+          <include name="checkCustomerAbleToUsePP"/>
           <include name="classConfig"/>
+          <include name="classTearDown"/>
+          <include name="methodConfig"/>
           <include name="methodTearDown"/>
-          <include name="sideNaviMenuTest"/>
         </methods>
-      </class> <!-- MerchantSideTestScript.ProfileDetailsTest -->
+      </class> <!-- PluginTestScripts.CustomerSidePurchaseProtection -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
